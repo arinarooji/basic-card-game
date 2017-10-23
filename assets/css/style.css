@@ -1,0 +1,45 @@
+.btn:hover {
+    cursor: pointer;
+}
+
+.player {
+    margin: 0 8px 0 8px;
+    -webkit-transition: 0.4s ease-in-out;
+    -moz-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+}
+.player:hover {
+    cursor: pointer;
+    -webkit-transform: translate(0.8em,-3em);
+    -moz-transform: translate(0.8em,-3em);
+    -o-transform: translate(0.8em,-3em);
+    -ms-transform: translate(0.8em,-3em);
+    transform: translate(0.8em,-3em);
+}
+.selected {
+    border: 4px solid red;
+    animation: borderAnimation 2.5s linear infinite;
+    -webkit-transform: scale(1.115);
+    -moz-transform: scale(1.115);
+    -o-transform: scale(1.115);
+    -ms-transform: scale(1.115);
+    transform: scale(1.115);
+}
+
+.fight {
+    background-color: orange;
+    animation: btnAnimation 3s linear infinite;
+}
+
+@keyframes borderAnimation {
+    0% {border-color: rgb(255, 0, 0);}
+    50% {border-color: rgb(253, 215, 0);}
+    100% {border-color: rgb(255, 0, 0);}
+}
+
+@keyframes btnAnimation {
+    0% {background-color: rgb(255, 0, 0);}
+    50% {background-color: rgb(253, 215, 0);}
+    100% {background-color: rgb(255, 0, 0);}
+}

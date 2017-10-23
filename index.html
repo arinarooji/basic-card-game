@@ -25,7 +25,6 @@
                 </div>
             </div>
             <br>
-            <br>
 
             <!--Game area-->
             <article class="game-border border border-dark rounded">
@@ -34,7 +33,7 @@
 
                 <!--Opponent health row-->
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="progress">
                             <div class="progress-bar bg-danger enemy-health" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
                                 aria-valuemax="100"></div>
@@ -45,9 +44,14 @@
                 <!--Opponent card row-->
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h6>Opponent Cards</h6>
+                        <section class="player-cards">
+                            <img class="playing-card rounded" src="assets/images/cards/Atticus.jpg" width="94" height="131">
+                            <img class="playing-card rounded" src="assets/images/cards/Atticus.jpg" width="94" height="131">
+                            <img class="playing-card rounded" src="assets/images/cards/Atticus.jpg" width="94" height="131">
+                            <img class="playing-card rounded" src="assets/images/cards/Atticus.jpg" width="94" height="131">
+                        </section>
                     </div>
-                </div>
+                </div><br><br><br><br><br><br>
 
                 <!--END OPPONENT AREA=================================-->
 
@@ -57,20 +61,32 @@
                 <!--Player card row-->
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h6 class="player-cards">Player Cards</h6>
+                        <section class="player-cards">
+                            <img class="playing-card rounded player fighter-one" src="#" width="187" height="261">
+                            <img class="playing-card rounded player power-one" src="#" width="187" height="261">
+                            <img class="playing-card rounded player fighter-two" src="#" width="187" height="261">
+                            <img class="playing-card rounded player power-two" src="#" width="187" height="261">
+                        </section>
+                    </div>
+                </div><br><br>
+
+                <div class="row">
+                    <div class="col-12">
+                        <section>
+                            <div>
+                                <button type="button" class="btn btn-warning float-right mb-3 mr-3">FIGHT</button>
+                            </div>
+                        </section>
                     </div>
                 </div>
-
-                <!--Player health/fight row-->
+                
+                <!--Player health row-->
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-12">
                         <div class="progress">
                             <div class="progress-bar bg-success player-health" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
                                 aria-valuemax="100"></div>
                         </div>
-                    </div>
-                    <div class="col align-self-end">
-                        <button type="button" class="btn btn-warning float-right">Fight</button>
                     </div>
                 </div>
 
