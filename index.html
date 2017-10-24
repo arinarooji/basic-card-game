@@ -10,8 +10,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
-    <!--Style CSS-->
+    <!-- Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC" rel="stylesheet">
 </head>
 
 <body>
@@ -28,58 +30,64 @@
 
             <!--Game area-->
             <article class="game-border border border-dark rounded">
-
-                <!--OPPONENT AREA=====================================-->
-
+                <!--OPPONENT AREA===========================-->
                 <!--Opponent health row-->
                 <div class="row">
                     <div class="col-12">
                         <div class="progress">
-                            <div class="progress-bar bg-danger enemy-health" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                            <div class="progress-bar bg-danger progress-bar-animated enemy-health" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
                                 aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
-
                 <!--Opponent card row-->
                 <div class="row">
                     <div class="col-12 text-center">
                         <section class="player-cards">
-                            <img class="playing-card rounded" src="assets/images/cards/Atticus.jpg" width="94" height="131">
-                            <img class="playing-card rounded" src="assets/images/cards/Atticus.jpg" width="94" height="131">
-                            <img class="playing-card rounded" src="assets/images/cards/Atticus.jpg" width="94" height="131">
-                            <img class="playing-card rounded" src="assets/images/cards/Atticus.jpg" width="94" height="131">
+                            <img class="playing-card rounded enemy" src="assets/images/cards/backcard.jpg" width="94" height="131" draggable="false">
+                            <img class="playing-card rounded enemy" src="assets/images/cards/backcard.jpg" width="94" height="131" draggable="false">
+                            <img class="playing-card rounded enemy" src="assets/images/cards/backcard.jpg" width="94" height="131" draggable="false">
+                            <img class="playing-card rounded enemy" src="assets/images/cards/backcard.jpg" width="94" height="131" draggable="false">
                         </section>
                     </div>
-                </div><br><br><br><br><br><br>
+                </div>
+                <!--END OPPONENT AREA=======================-->
+                
 
-                <!--END OPPONENT AREA=================================-->
+                <!-- Output row-->
+                <div class="row">
+                    <div class="col-12">
+                        <section class="output text-center">
+                            <h3 class="log"> </h3>
+                            <h3 class="result"> </h3>
+                        </section>
+                    </div>
+                </div>
 
 
-                <!--PLAYER AREA=======================================-->
-
+                <!--PLAYER AREA=============================-->
                 <!--Player card row-->
                 <div class="row">
                     <div class="col-12 text-center">
                         <section class="player-cards">
-                            <img class="playing-card rounded player fighter-one" src="#" width="187" height="261">
-                            <img class="playing-card rounded player power-one" src="#" width="187" height="261">
-                            <img class="playing-card rounded player fighter-two" src="#" width="187" height="261">
-                            <img class="playing-card rounded player power-two" src="#" width="187" height="261">
+                            <img class="playing-card rounded player fighter-one" src="#" width="187" height="261" draggable="false">
+                            <img class="playing-card rounded player power-one" src="#" width="187" height="261" draggable="false">
+                            <img class="playing-card rounded player fighter-two" src="#" width="187" height="261" draggable="false">
+                            <img class="playing-card rounded player power-two" src="#" width="187" height="261" draggable="false">
                         </section>
                     </div>
-                </div><br><br>
-
+                </div>
+                <!-- Buttons row-->
                 <div class="row">
                     <div class="col-12">
                         <section>
                             <div>
+                                <button type="button" class="btn btn-info mb-3 ml-3">REPLAY</button>
                                 <button type="button" class="btn btn-warning float-right mb-3 mr-3">FIGHT</button>
                             </div>
                         </section>
                     </div>
                 </div>
-                
                 <!--Player health row-->
                 <div class="row">
                     <div class="col-12">
@@ -89,11 +97,8 @@
                         </div>
                     </div>
                 </div>
-
-                <!--END PLAYER AREA===================================-->
-
+                <!--END PLAYER AREA=========================-->
             </article>
-
 
         </div>
     </div>

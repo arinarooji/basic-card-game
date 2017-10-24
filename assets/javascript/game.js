@@ -2,7 +2,7 @@
 var deck = {
     
     //Fighter card images with their corresponding values
-    fighterName: ["Atticus", "Ayda", "Dorian", "Elika", "Eris", "Kyra", "Ayda", "Olga", "Quintus", "Rohm", "Vicar",],
+    fighterName: ["Atticus", "Ayda", "Dorian", "Elika", "Eris", "Kyra", "Olga", "Quintus", "Rohm", "Vicar",],
     fighterImage: ["assets/images/cards/Atticus.jpg","assets/images/cards/Ayda.jpg", "assets/images/cards/Dorian.jpg",
                     "assets/images/cards/Elika.jpg", "assets/images/cards/Eris.jpg", "assets/images/cards/Kyra.jpg",
                     "assets/images/cards/Olga.jpg", "assets/images/cards/Quintus.jpg", "assets/images/cards/Rohm.jpg",
@@ -17,20 +17,16 @@ var deck = {
     powerValue: [6, 9, 4, 10, 8, 7, 5, 2, 1, 3]
 }
 //Initialize necessary variables...
-var fighterOne = Math.floor(Math.random() * deck.fighterImage.length);
-var fighterTwo = Math.floor(Math.random() * deck.fighterImage.length);
-var powerOne = Math.floor(Math.random() * deck.powerImage.length);
-var powerTwo = Math.floor(Math.random() * deck.powerImage.length);
+var playerName = "";
+var playerHealth = 100;
+var enemyHealth = 100;
 var selection = [];
 var types = [];
 var canFight = false;
 
-//Used to find if card has the nm attribute (fighter name)
-var name = $(this).attr("nm");
-
 $(".player").on("click", function(){
     //Get most recent player name
-    if (typeof name !== typeof undefined && name !== false) {
+    if ($(this).attr("nm") !== undefined) {
         playerName = $(this).attr("nm");
     }
     //Push this card to the selection array
@@ -49,44 +45,83 @@ $(".player").on("click", function(){
     }
     //If player chose one of each type, they are ready to fight
     if (types.includes("fighter") && types.includes("power")){
-        $(".btn").addClass("fight");
+        $(".btn-warning").addClass("fight");
         canFight = true;
     }
     //Else, they cannot fight yet
     else {
-        $(".btn").removeClass("fight");
+        $(".btn-warning").removeClass("fight");
         canFight = false;
     }
-    console.log(selection);
 });
 
 //On btn click...
-$(".btn").on("click", function(){
+$(".btn-warning").on("click", function(){
     //If player can fight
     if (canFight){
         //Calculate the player's total power (maximum value of 20)
-        var playerPower = parseInt(selection[0].attributes[4].nodeValue) + parseInt(selection[1].attributes[4].nodeValue);
+        var playerPower = parseInt(selection[0].attributes[5].nodeValue) + parseInt(selection[1].attributes[5].nodeValue);
         //Calculate the computer's total power (maximum value of 20)
-        var computerPower = Math.floor(Math.random() * 21);
+        var cpuPower1 = Math.floor(Math.random() * deck.fighterName.length);
+        var cpuPower2 = Math.floor(Math.random() * deck.powerValue.length);
+        var cpuTotalPower = deck.fighterValue[cpuPower1] + deck.powerValue[cpuPower2];
+        //Update the battle log
+        $(".log").html(playerName + " level " + playerPower + " VS " + deck.fighterName[cpuPower1] + " level " + cpuTotalPower);
         //Compare the two values
-        if(playerPower > computerPower) {
-            console.log("Player wins the round");
+        if(playerPower > cpuTotalPower) {
+            $(".enemy-health").css("width", (enemyHealth -= 20) + "%");
+            $(".result").html("ROUND WON");
+            console.log(enemyHealth);
         }
-        else if (playerPower === computerPower) {
-            console.log("Draw!");
+        else if (playerPower === cpuTotalPower) {
+            $(".result").html("DRAW");
         }
         else {
-            console.log("CPU wins the round!");
+            $(".player-health").css("width", (playerHealth -= 20) + "%");
+            $(".result").html("ROUND LOST");
+            console.log(playerHealth);
         }
-        for (var a = 0; a < selection.length; a++) {
-            selection[a].classList.remove("selected");
-            selection[a].attributes[1].nodeValue = "#";
-        }
-        selection = [];
-        types = [];
+        $(".btn-warning").removeClass("fight");
         canFight = false;
-        newCard();
+
+        if (playerHealth <= 0) {
+            $(".log").html("");
+            $(".result").html("DEFEAT!");
+            $(".btn-info").show();
+        }
+        else if (enemyHealth <= 0) {
+            $(".log").html("");
+            $(".result").html("VICTORY!");
+            $(".btn-info").show();
+        }
+        else{
+            //Add new cards after 1 second
+            setTimeout(function(){
+                for (var a = 0; a < selection.length; a++) {
+                    selection[a].classList.remove("selected");
+                    selection[a].attributes[1].nodeValue = "#";
+                }
+                $(".log, .result").html("");
+                selection = [];
+                types = [];
+                newCard();
+            }, 2000);
+        }
     }
+});
+
+//On replay btn click...
+$(".btn-info").on("click", function(){
+    $(".log, .result").html("");
+    for (var a = 0; a < selection.length; a++) {
+        selection[a].classList.remove("selected");
+        selection[a].attributes[1].nodeValue = "#";
+    }
+    selection = [];
+    types = [];
+    playerHealth = 100;
+    enemyHealth = 100;
+    newCard();
 });
 
 //Sets a new card if needed (this process needs to be optimized!)
@@ -96,6 +131,10 @@ function newCard () {
     var fighterTwo = Math.floor(Math.random() * deck.fighterImage.length);
     var powerOne = Math.floor(Math.random() * deck.powerImage.length);
     var powerTwo = Math.floor(Math.random() * deck.powerImage.length);
+    $(".btn-info").hide();
+
+    $(".player-health").css("width", playerHealth + "%");
+    $(".enemy-health").css("width", enemyHealth + "%");
     
     if ($(".fighter-one").attr("src") === "#"){
         $(".fighter-one").attr({
