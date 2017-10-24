@@ -111,7 +111,7 @@ $(".btn-warning").on("click", function(){
                 selection = [];
                 types = [];
                 newCard();
-            }, 3000);
+            }, 4000);
         }
     }
 });
