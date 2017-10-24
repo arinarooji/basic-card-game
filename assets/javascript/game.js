@@ -16,6 +16,12 @@ var deck = {
                   "assets/images/cards/ThrowingKnives.jpg",],
     powerValue: [6, 9, 4, 10, 8, 7, 5, 2, 1, 3]
 }
+//Sound
+var selectSound = document.createElement("audio");
+var fightSound = document.createElement("audio");
+selectSound.setAttribute("src", "assets/audio/select.mp3");
+fightSound.setAttribute("src", "assets/audio/fight.mp3");
+
 //Initialize necessary variables...
 var playerName = "";
 var playerHealth = 100;
@@ -25,6 +31,7 @@ var types = [];
 var canFight = false;
 
 $(".player").on("click", function(){
+    selectSound.play();
     //Get most recent player name
     if ($(this).attr("nm") !== undefined) {
         playerName = $(this).attr("nm");
@@ -59,6 +66,7 @@ $(".player").on("click", function(){
 $(".btn-warning").on("click", function(){
     //If player can fight
     if (canFight){
+        fightSound.play();
         //Calculate the player's total power (maximum value of 20)
         var playerPower = parseInt(selection[0].attributes[5].nodeValue) + parseInt(selection[1].attributes[5].nodeValue);
         //Calculate the computer's total power (maximum value of 20)
@@ -85,12 +93,10 @@ $(".btn-warning").on("click", function(){
         canFight = false;
 
         if (playerHealth <= 0) {
-            $(".log").html("");
             $(".result").html("DEFEAT!");
             $(".btn-info").show();
         }
         else if (enemyHealth <= 0) {
-            $(".log").html("");
             $(".result").html("VICTORY!");
             $(".btn-info").show();
         }
@@ -105,7 +111,7 @@ $(".btn-warning").on("click", function(){
                 selection = [];
                 types = [];
                 newCard();
-            }, 2000);
+            }, 3000);
         }
     }
 });
