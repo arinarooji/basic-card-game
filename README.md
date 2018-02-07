@@ -16,8 +16,8 @@ _________
 
 #### Winning the War
 - The goal for each round is to have a higher level than your opponent. The hero with the highest level wins the round.
-- The losing side receives damage, which is represented with the health bars at the top *(CPU's, red color)* and bottom *(Player's, green color)* of the screen.
-- Whoever's health bar depletes first has lost the war, while the other is deemed the warlord!
+- The losing side receives damage, which is represented with the **health bars** at the top *(CPU's, red color)* and bottom *(Player's, green color)* of the screen.
+- Whoever's **health bar** depletes first has lost the war, while the other is deemed the warlord!
 
 ### Future Plans
 ________________
