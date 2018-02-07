@@ -1,4 +1,5 @@
 # WARLORDS: A Card Game
+![gatekeeper-2904993_1920 2](https://user-images.githubusercontent.com/30301389/35941077-17d9a18a-0c1f-11e8-8272-87e60786e7c1.jpg)
 ### Dual your CPU with various hero and power up cards!
 
 ### Guide
