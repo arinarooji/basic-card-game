@@ -22,6 +22,7 @@ _________
 ### Future Plans
 ________________
 - Additional cards
+- Multiplayer support
 - Further code optimization
 - Redesign/expand the HTML/CSS
 - Create a backstory for the heros
