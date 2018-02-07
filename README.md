@@ -1,1 +1,1 @@
-# basic-card-game
+# WARLORDS: A Card Game
