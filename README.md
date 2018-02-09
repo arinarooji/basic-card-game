@@ -19,8 +19,9 @@ _________
 - The losing side receives damage, which is represented with the **health bars** at the top *(CPU's, red color)* and bottom *(Player's, green color)* of the screen.
 - Whoever's **health bar** depletes first has lost the war, while the other is deemed the warlord!
 
-### Future Plans
+### Additional Information
 ________________
+#### Future Plans
 - Additional cards
 - Multiplayer support
 - Further code optimization
